@@ -59,6 +59,9 @@ public class Ex1 {
      */
     public static int number2Int(String num) {
         int ans = -1;
+        if (num == null || num.isEmpty()){
+            return ans;
+        }
         String[] bases = {"2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"};
         int index = num.indexOf("b");
         String base = "A";
@@ -111,7 +114,7 @@ public class Ex1 {
     public static boolean isValidNumber(String a) {
         boolean ans = true;
         String[] bases = {"2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"};
-        if (a.isEmpty()){
+        if (a == null || a.isEmpty()){
             return false;
         }
         int index = a.indexOf("b");
@@ -148,11 +151,6 @@ public class Ex1 {
         }
         return ans;
     }
-
-
-
-
-
     /**
      * Calculate the number representation (in basis base)
      * of the given natural number (represented as an integer).
@@ -204,7 +202,14 @@ public class Ex1 {
      */
     public static int maxIndex(String[] arr) {
         int ans = 0;
-
+        int biggerNum = number2Int(arr[0]);
+        for (int i = 1; i < arr.length; i++){
+            int num = number2Int(arr[i]);
+            if (num > biggerNum){
+                biggerNum = num;
+                ans = i;
+            }
+        }
         return ans;
     }
 }

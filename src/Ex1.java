@@ -4,9 +4,11 @@ public class Ex1 {
     public static void main(String[] args){
       int result = number2Int("10AbB");
       System.out.println(result);
+      String res = int2Number(31,16);
+      System.out.println(res);
 
     }
-    public static int convertStringToInt(String value){
+    public static int convertBaseStringToInt(String value){
         int num = 0;
         if (value.equals("A")) {
             num = 10;
@@ -26,6 +28,27 @@ public class Ex1 {
             num = Integer.parseInt(value);
         }
         return num;
+    }
+    public static String convertIntToBaseString(int value){
+        String base = "";
+        if (value == 10){
+            base = "A";
+        } else if (value == 11){
+            base = "B";
+        } else if (value == 12) {
+            base = "C";
+        } else if (value == 13) {
+            base = "D";
+        } else if (value == 14) {
+            base = "E";
+        } else if (value == 15) {
+            base = "F";
+        } else if (value == 16) {
+            base = "G";
+        }else{
+            base = value + "";
+        }
+        return base;
     }
     /**
      * Convert the given number (num) to a decimal representation (as int).
@@ -69,8 +92,8 @@ public class Ex1 {
             if (!found){
                 return ans;
             }
-            int fac = convertStringToInt(ch);
-            int baseNum = convertStringToInt(base);
+            int fac = convertBaseStringToInt(ch);
+            int baseNum = convertBaseStringToInt(base);
             result = result + (fac * (int)Math.pow(baseNum, num.length() - 1 - j));
         }
         ans = result;
@@ -88,6 +111,9 @@ public class Ex1 {
     public static boolean isValidNumber(String a) {
         boolean ans = true;
         String[] bases = {"2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"};
+        if (a.isEmpty()){
+            return false;
+        }
         int index = a.indexOf("b");
         String base = "A";
         if (index != -1) {
@@ -136,20 +162,21 @@ public class Ex1 {
      * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
      */
     public static String int2Number(int num, int base) {
+        String ans = "";
         if (num < 0 || base < 2 || base > 16){
-
-                return "empty String";
+            return ans;
         }
         if (num == 0) {
-            return "0";
+            ans = "0";
+            return ans;
         }
-        StringBuilder result = new StringBuilder();
-        char[] numbers = "0123456789ABCDEFG".toCharArray();
-
-        String ans = "";
-        // add your code here
-
-        ////////////////////
+        while (num / base != 0 || num%base != 0){
+            ans = convertIntToBaseString(num%base) + ans;
+            num = num / base;
+        }
+        if (base != 10){
+            ans = ans + "b" + convertIntToBaseString(base);
+        }
         return ans;
     }
 
@@ -161,9 +188,9 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
-        // add your code here
-
-        ////////////////////
+        int num1 = number2Int(n1);
+        int num2 = number2Int(n2);
+        ans = num1 == num2;
         return ans;
     }
 
@@ -177,9 +204,7 @@ public class Ex1 {
      */
     public static int maxIndex(String[] arr) {
         int ans = 0;
-        // add your code here
 
-        ////////////////////
         return ans;
     }
 }

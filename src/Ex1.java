@@ -188,10 +188,13 @@ public class Ex1 {
         boolean ans = true;
         int num1 = number2Int(n1);
         int num2 = number2Int(n2);
-        ans = num1 == num2;
+        if(num1 == -1 || num2 == -1){
+            ans =  false;
+        }else{
+            ans = num1 == num2;
+        }
         return ans;
     }
-
     /**
      * This static function search for the array index with the largest number (in value).
      * In case there are more than one maximum - returns the first index.

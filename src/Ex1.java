@@ -65,6 +65,9 @@ public class Ex1 {
         String[] bases = {"2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"};
         int index = num.indexOf("b");
         String base = "A";
+        if (index == 0){
+            return ans;
+        }
         if (index != -1) {
             base = num.substring(index + 1);
             num = num.substring(0, index);
@@ -119,6 +122,9 @@ public class Ex1 {
         }
         int index = a.indexOf("b");
         String base = "A";
+        if (index == 0){
+            return false;
+        }
         if (index != -1) {
             base = a.substring(index + 1);
             a = a.substring(0, index);

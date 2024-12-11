@@ -1,13 +1,6 @@
 import java.util.Arrays;
 
 public class Ex1 {
-    public static void main(String[] args){
-      int result = number2Int("10AbB");
-      System.out.println(result);
-      String res = int2Number(31,16);
-      System.out.println(res);
-
-    }
     public static int convertBaseStringToInt(String value){
         int num = 0;
         if (value.equals("A")) {

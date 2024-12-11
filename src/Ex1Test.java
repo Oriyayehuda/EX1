@@ -46,7 +46,7 @@ public class Ex1Test {
         res = Ex1.int2Number(num, 17);
         Assertions.assertEquals("", res);
         res = Ex1.int2Number(0, 2);
-        Assertions.assertEquals("0", res);
+        Assertions.assertEquals("0b2", res);
         res = Ex1.int2Number(-1, 2);
         Assertions.assertEquals("", res);
         res = Ex1.int2Number(num, 1);

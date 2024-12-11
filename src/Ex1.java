@@ -165,7 +165,6 @@ public class Ex1 {
         }
         if (num == 0) {
             ans = "0";
-            return ans;
         }
         while (num / base != 0 || num%base != 0){
             ans = convertIntToBaseString(num%base) + ans;
